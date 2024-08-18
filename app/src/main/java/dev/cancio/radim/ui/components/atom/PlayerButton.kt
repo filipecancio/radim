@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -56,6 +57,7 @@ private fun Preview() {
 fun PlayerBtn(
     state: PlayerBtnState,
     size: Dp = 100.dp,
+    testTag: String = "playerBtn",
     onClick: () -> Unit = {},
 ) = Box(
     modifier = Modifier
@@ -64,7 +66,8 @@ fun PlayerBtn(
             shape = RoundedCornerShape(50.dp)
         )
         .size(size = size)
-        .clickable { onClick() },
+        .clickable { onClick() }
+        .testTag(testTag),
     contentAlignment = Alignment.Center
 ) {
     val infiniteTransition = rememberInfiniteTransition(label = "loading")
@@ -80,7 +83,7 @@ fun PlayerBtn(
     Icon(
         imageVector = state.icon,
         tint = state.tintColor.color,
-        contentDescription = null,
+        contentDescription = state.name,
         modifier = Modifier
             .size(size.times(state.ratio))
             .rotate(
