@@ -7,14 +7,17 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
@@ -26,28 +29,42 @@ import dev.cancio.radim.ui.theme.Pause
 import dev.cancio.radim.ui.theme.Play
 import dev.cancio.radim.ui.theme.RadimColor
 import dev.cancio.radim.ui.theme.Reload
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 
 @Preview
 @Composable
 private fun Preview() {
-    Row {
-        PlayerBtn(PlayerBtnState.Paused)
-        PlayerBtn(PlayerBtnState.Loading)
-        PlayerBtn(PlayerBtnState.Running)
+    val scope = rememberCoroutineScope()
+    var playerBtnState by remember { mutableStateOf(PlayerBtnState.Paused) }
+    PlayerBtn(playerBtnState){
+        scope.launch {
+            flow {
+                val finalState = if(playerBtnState == PlayerBtnState.Running) PlayerBtnState.Paused else PlayerBtnState.Running
+                emit(PlayerBtnState.Loading)
+                delay(2000)
+                emit(finalState)
+            }.collect{
+                playerBtnState = it
+            }
+        }
     }
 }
 
 @Composable
 fun PlayerBtn(
     state: PlayerBtnState,
-    size: Dp = 43.dp
+    size: Dp = 100.dp,
+    onClick: () -> Unit = {},
 ) = Box(
     modifier = Modifier
         .background(
             color = state.bgColor.color,
             shape = RoundedCornerShape(50.dp)
         )
-        .size(size = size),
+        .size(size = size)
+        .clickable { onClick() },
     contentAlignment = Alignment.Center
 ) {
     val infiniteTransition = rememberInfiniteTransition(label = "loading")
@@ -65,7 +82,7 @@ fun PlayerBtn(
         tint = state.tintColor.color,
         contentDescription = null,
         modifier = Modifier
-            .size(size.times(0.36F))
+            .size(size.times(state.ratio))
             .rotate(
                 if (state == PlayerBtnState.Loading) angle else 0f
             )
@@ -75,7 +92,8 @@ fun PlayerBtn(
 enum class PlayerBtnState(
     val bgColor: RadimColor,
     val tintColor: RadimColor,
-    val icon: ImageVector
+    val icon: ImageVector,
+    val ratio: Float = 0.36F,
 ) {
     Running(
         RadimColor.Weed01,
@@ -85,7 +103,8 @@ enum class PlayerBtnState(
     Loading(
         RadimColor.Orange01,
         RadimColor.Grape01,
-        Reload
+        Reload,
+        0.45F
     ),
     Paused(
         RadimColor.Carbon03,

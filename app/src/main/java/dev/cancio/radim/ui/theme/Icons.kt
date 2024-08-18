@@ -90,12 +90,12 @@ val Play: ImageVector
 val Reload: ImageVector
     get() = ImageVector.Builder(
         name = "Reload",
-        defaultWidth = 112.0.dp,
-        defaultHeight = 112.0.dp,
-        viewportWidth = 112.0F,
-        viewportHeight = 112.0F,
+        defaultWidth = 408.0.dp,
+        defaultHeight = 379.0.dp,
+        viewportWidth = 408.0F,
+        viewportHeight = 379.0F,
     ).path(
-        fill = SolidColor(Color(0xFFFFFFFF)),
+        fill = SolidColor(Color(0xFF311845)),
         fillAlpha = 1.0F,
         strokeAlpha = 1.0F,
         strokeLineWidth = 0.0F,
@@ -104,32 +104,32 @@ val Reload: ImageVector
         strokeLineMiter = 4.0F,
         pathFillType = PathFillType.NonZero,
     ) {
-        moveTo(87.25F, 5.19F)
-        curveTo(86.25F, 1.46F, 82.41F, -0.76F, 78.68F, 0.24F)
-        curveTo(74.94F, 1.24F, 72.73F, 5.08F, 73.73F, 8.81F)
-        lineTo(73.86F, 9.3F)
-        curveTo(67.75F, 6.97F, 61.22F, 5.84F, 54.6F, 6.02F)
-        curveTo(43.84F, 6.32F, 33.46F, 10.09F, 25.0F, 16.77F)
-        curveTo(16.55F, 23.45F, 10.48F, 32.68F, 7.7F, 43.08F)
-        curveTo(4.91F, 53.49F, 5.57F, 64.51F, 9.56F, 74.52F)
-        curveTo(13.54F, 84.52F, 20.66F, 92.97F, 29.84F, 98.61F)
-        curveTo(39.02F, 104.25F, 49.77F, 106.77F, 60.5F, 105.8F)
-        curveTo(71.23F, 104.83F, 81.35F, 100.42F, 89.37F, 93.23F)
-        curveTo(95.87F, 87.41F, 100.7F, 80.02F, 103.43F, 71.81F)
-        curveTo(104.5F, 68.6F, 102.32F, 65.35F, 99.01F, 64.68F)
-        curveTo(95.69F, 64.01F, 92.51F, 66.19F, 91.31F, 69.35F)
-        curveTo(89.18F, 74.98F, 85.72F, 80.05F, 81.2F, 84.11F)
-        curveTo(75.14F, 89.54F, 67.5F, 92.87F, 59.4F, 93.6F)
-        curveTo(51.3F, 94.33F, 43.18F, 92.43F, 36.25F, 88.17F)
-        curveTo(29.32F, 83.91F, 23.95F, 77.54F, 20.94F, 69.98F)
-        curveTo(17.92F, 62.43F, 17.43F, 54.1F, 19.53F, 46.25F)
-        curveTo(21.64F, 38.39F, 26.22F, 31.42F, 32.6F, 26.38F)
-        curveTo(38.98F, 21.34F, 46.82F, 18.49F, 54.95F, 18.27F)
-        curveTo(58.68F, 18.16F, 62.38F, 18.61F, 65.94F, 19.59F)
-        curveTo(63.55F, 21.21F, 62.33F, 24.23F, 63.12F, 27.18F)
-        curveTo(64.12F, 30.92F, 67.96F, 33.13F, 71.69F, 32.13F)
-        lineTo(86.18F, 28.25F)
-        curveTo(89.92F, 27.25F, 92.13F, 23.41F, 91.13F, 19.68F)
-        lineTo(87.25F, 5.19F)
+        moveTo(299.5F, 15.78F)
+        curveTo(291.48F, 1.1F, 273.08F, -4.31F, 258.4F, 3.71F)
+        curveTo(246.72F, 10.09F, 240.91F, 23.03F, 243.06F, 35.44F)
+        curveTo(227.21F, 31.3F, 210.73F, 29.6F, 194.16F, 30.49F)
+        curveTo(160.14F, 32.33F, 127.59F, 45.02F, 101.31F, 66.7F)
+        curveTo(75.02F, 88.38F, 56.37F, 117.92F, 48.1F, 150.98F)
+        curveTo(39.82F, 184.03F, 42.36F, 218.87F, 55.33F, 250.38F)
+        curveTo(68.3F, 281.89F, 91.03F, 308.41F, 120.18F, 326.06F)
+        curveTo(149.33F, 343.71F, 183.37F, 351.55F, 217.3F, 348.44F)
+        curveTo(251.24F, 345.33F, 283.28F, 331.43F, 308.73F, 308.77F)
+        curveTo(325.83F, 293.56F, 339.34F, 274.94F, 348.51F, 254.26F)
+        curveTo(355.97F, 237.41F, 344.12F, 219.48F, 326.09F, 215.68F)
+        curveTo(308.05F, 211.88F, 290.79F, 223.99F, 280.88F, 239.52F)
+        curveTo(276.32F, 246.67F, 270.77F, 253.21F, 264.36F, 258.91F)
+        curveTo(249.56F, 272.08F, 230.93F, 280.17F, 211.21F, 281.97F)
+        curveTo(191.48F, 283.78F, 171.7F, 279.22F, 154.75F, 268.96F)
+        curveTo(137.8F, 258.7F, 124.59F, 243.29F, 117.05F, 224.97F)
+        curveTo(109.51F, 206.65F, 108.03F, 186.4F, 112.84F, 167.18F)
+        curveTo(117.65F, 147.96F, 128.49F, 130.8F, 143.78F, 118.19F)
+        curveTo(159.06F, 105.59F, 177.98F, 98.21F, 197.76F, 97.14F)
+        curveTo(206.33F, 96.68F, 214.87F, 97.42F, 223.14F, 99.28F)
+        curveTo(223.47F, 99.36F, 223.8F, 99.43F, 224.13F, 99.5F)
+        curveTo(215.77F, 108.79F, 213.74F, 122.69F, 220.07F, 134.28F)
+        curveTo(228.09F, 148.96F, 246.49F, 154.36F, 261.17F, 146.34F)
+        lineTo(319.04F, 114.74F)
+        curveTo(333.72F, 106.72F, 339.12F, 88.32F, 331.1F, 73.64F)
+        lineTo(299.5F, 15.78F)
         close()
     }.build()
