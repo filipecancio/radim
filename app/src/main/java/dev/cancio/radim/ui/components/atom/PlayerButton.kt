@@ -56,7 +56,7 @@ private fun Preview() {
 @Composable
 fun PlayerBtn(
     state: PlayerBtnState,
-    size: Dp = 100.dp,
+    size: Dp = 43.dp,
     testTag: String = "playerBtn",
     onClick: () -> Unit = {},
 ) = Box(
